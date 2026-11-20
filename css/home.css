@@ -1,0 +1,8 @@
+.study-steps {
+    border-inline-start: 2px solid rgba(255, 255, 255, .65);
+    padding-inline-start: 1.5rem;
+}
+
+.study-steps li + li {
+    margin-top: .5rem;
+}

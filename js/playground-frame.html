@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval'; worker-src blob:; connect-src 'none'">
+    <title>Среда выполнения JavaScript</title>
+</head>
+<body>
+<script>
+    function runInWorker() {
+        self.onmessage = async ({ data: code }) => {
+            const logs = [];
+            let characters = 0;
+            function print(...values) {
+                const text = values.map(value => {
+                    try {
+                        return typeof value === 'object' ? JSON.stringify(value, null, 2) : String(value);
+                    } catch {
+                        return String(value);
+                    }
+                }).join(' ');
+                if (logs.length < 100 && characters < 8000) {
+                    const line = text.slice(0, 8000 - characters);
+                    logs.push(line);
+                    characters += line.length;
+                }
+            }
+            console.log = print;
+            console.info = print;
+            console.warn = print;
+            console.error = print;
+
+            try {
+                const value = await (0, eval)(code);
+                if (logs.length === 0 && value !== undefined) {
+                    print(value);
+                }
+            } catch (error) {
+                print('Ошибка: ' + (error?.message ?? String(error)));
+            }
+            self.postMessage(logs.join('\n') || 'Код выполнен. Вывода нет.');
+        };
+    }
+
+    window.addEventListener('message', event => {
+        if (window.parent === window || event.source !== window.parent || typeof event.data !== 'string') {
+            return;
+        }
+
+        const script = new Blob([`(${runInWorker})();`], { type: 'text/javascript' });
+        const url = URL.createObjectURL(script);
+        const worker = new Worker(url);
+        function finish(message) {
+            clearTimeout(timeout);
+            worker.terminate();
+            URL.revokeObjectURL(url);
+            window.parent.postMessage(message, '*');
+        }
+
+        const timeout = setTimeout(() => finish('Время выполнения истекло. Проверьте, завершаются ли циклы.'), 2000);
+        worker.onmessage = ({ data }) => {
+            if (typeof data === 'string') {
+                finish(data.slice(0, 8100));
+            }
+        };
+        worker.onerror = () => finish('Не удалось запустить код. Обновите страницу и попробуйте снова.');
+        worker.postMessage(event.data);
+    });
+</script>
+</body>
+</html>

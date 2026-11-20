@@ -1,0 +1,29 @@
+.auth-card {
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.auth-card .card-header {
+    background: var(--brand-gradient);
+    color: #fff;
+}
+
+.auth-card .input-group-text {
+    color: #495057;
+}
+
+.course-icon-container {
+    min-height: 6rem;
+    background: #e9f0fa;
+}
+
+.course-card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 100%;
+}
+
+.course-card .card-body > :last-child {
+    margin-top: auto;
+}

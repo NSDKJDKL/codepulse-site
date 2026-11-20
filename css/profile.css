@@ -1,0 +1,9 @@
+.profile-header {
+    background: #15335f;
+    color: #fff;
+    overflow-wrap: anywhere;
+}
+
+.profile-status:empty {
+    margin: 0;
+}

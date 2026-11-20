@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HTML & CSS - CodePulse 2026</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/lesson.css">
+	<link rel="stylesheet" href="css/navigation.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+	<nav aria-label="Основная навигация" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">
+				<img src="img/codepulse-wordmark.png" width="540" height="108" alt="CodePulse">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Открыть меню">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Главная</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="home.html">Как учиться</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="about.html">О проекте</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact.html">Контакты</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="vibor.html" aria-current="location">Обучение</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="login.html">Вход</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link btn btn-primary text-white ms-2" href="register.html">Регистрация</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<section class="page-header py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1 class="display-4 fw-bold text-center">HTML &amp; CSS</h1>
+					<p class="lead text-center">Соберите и оформите свою первую веб-страницу</p>
+				<div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+					<a class="btn btn-outline-light" href="#lesson-navigation">Содержание</a>
+					<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#testModal">Начать тест</button>
+				</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<main class="main-content py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<section class="mb-5" id="intro">
+						<h2 class="fw-bold mb-4">Что такое HTML и CSS?</h2>
+						<div class="card p-4">
+							<h3>HTML (HyperText Markup Language)</h3>
+							<p>HTML — это язык гипертекстовой разметки, который используется для создания структуры веб-страницы. Он определяет, какие элементы будут отображаться на странице: текст, изображения, таблицы, видео и другие медиа-элементы.</p>
+
+							<h3 class="mt-4">CSS (Cascading Style Sheets)</h3>
+							<p>CSS — это каскадные таблицы стилей, которые используются для оформления и визуального представления веб-страницы. С помощью CSS вы можете контролировать цвета, шрифты, расположение элементов и другие визуальные аспекты.</p>
+						</div>
+					</section>
+					<section class="mb-5" id="html-elements">
+						<h2 class="fw-bold mb-4">Основные элементы HTML</h2>
+						<div class="card p-4">
+							<div class="row">
+								<div class="col-md-6 mb-4">
+									<div class="card h-100">
+										<div class="card-body">
+											<h5 class="card-title">Элементы</h5>
+											<p class="card-text">Элементы указывают, как определять структуру и содержимое объектов на странице. Некоторые из часто используемых элементов включают в себя несколько уровней заголовков (определены как элементы с h1 до h6) и абзацев (определены как p); в список можно включить элементы a, div, span, strong и em и многие другие.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 mb-4">
+									<div class="card h-100">
+										<div class="card-body">
+											<h5 class="card-title">Теги</h5>
+											<p class="card-text">Теги — это элементы в угловых скобках, которые окружают содержимое. Например: &lt;h1&gt; и &lt;/h1&gt;. Теги наиболее часто встречаются в парах открывающих и закрывающих тегов. Открывающий тег отмечает начало элемента. Он состоит из символа &lt;, затем идёт имя элемента и завершается символом &gt;.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 mb-4">
+									<div class="card h-100">
+										<div class="card-body">
+											<h5 class="card-title">Атрибуты</h5>
+											<p class="card-text">Атрибуты являются свойствами, применяемыми для предоставления дополнительной информации об элементе. Наиболее распространённые атрибуты включают в себя атрибут id, который идентифицирует элемент; атрибут class, который классифицирует элемент; атрибут src, который определяет источник встраиваемого содержимого; и атрибут href, который указывает ссылку на связанный ресурс.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 mb-4">
+									<div class="card h-100">
+										<div class="card-body">
+											<h5 class="card-title">Самозакрывающиеся элементы</h5>
+											<p class="card-text">Элементы, которые не требуют закрывающего тега: &lt;br&gt;, &lt;hr&gt;, &lt;img&gt;, &lt;input&gt; и другие.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="html-example">
+						<h2 class="fw-bold mb-4">Пример HTML документа</h2>
+						<div class="card p-4">
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="htmlExample">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="htmlExample"><span class="code-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="code-tag">&lt;html</span> <span class="code-attr">lang</span>=<span class="code-string">"ru"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;head&gt;</span>
+    <span class="code-tag">&lt;meta</span> <span class="code-attr">charset</span>=<span class="code-string">"utf-8"</span><span class="code-tag">&gt;</span>
+    <span class="code-tag">&lt;title&gt;</span><span class="code-text">Привет, мир!</span><span class="code-tag">&lt;/title&gt;</span>
+  <span class="code-tag">&lt;/head&gt;</span>
+  <span class="code-tag">&lt;body&gt;</span>
+    <span class="code-tag">&lt;h1&gt;</span><span class="code-text">Привет, мир!</span><span class="code-tag">&lt;/h1&gt;</span>
+    <span class="code-tag">&lt;p&gt;</span><span class="code-text">Это мой первый сайт.</span><span class="code-tag">&lt;/p&gt;</span>
+  <span class="code-tag">&lt;/body&gt;</span>
+<span class="code-tag">&lt;/html&gt;</span></code></pre>
+							</div>
+
+							<div class="alert alert-info mt-3">
+								<h4>Объяснение:</h4>
+								<ul>
+									<li><strong>&lt;!DOCTYPE html&gt;</strong> — объявление типа документа</li>
+									<li><strong>&lt;html&gt;</strong> — корневой элемент HTML-документа</li>
+									<li><strong>&lt;head&gt;</strong> — содержит метаданные документа</li>
+									<li><strong>&lt;meta charset="utf-8"&gt;</strong> — определяет кодировку документа</li>
+									<li><strong>&lt;title&gt;</strong> — заголовок страницы, отображаемый во вкладке браузера</li>
+									<li><strong>&lt;body&gt;</strong> — видимое содержимое страницы</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="css-basics">
+						<h2 class="fw-bold mb-4">Основные понятия CSS</h2>
+						<div class="card p-4">
+							<div class="row">
+								<div class="col-md-4 mb-4">
+									<div class="text-center">
+										<i class="fas fa-mouse-pointer fa-3x mb-3 text-primary"></i>
+										<h5>Селекторы</h5>
+										<p>Определяют, к какому элементу применить стили</p>
+									</div>
+								</div>
+								<div class="col-md-4 mb-4">
+									<div class="text-center">
+										<i class="fas fa-sliders-h fa-3x mb-3 text-warning"></i>
+										<h5>Свойства</h5>
+										<p>Определяют, какие стили применить</p>
+									</div>
+								</div>
+								<div class="col-md-4 mb-4">
+									<div class="text-center">
+										<i class="fas fa-tag fa-3x mb-3 text-success"></i>
+										<h5>Значения</h5>
+										<p>Определяют конкретные параметры стилей</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="code-block mt-4">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="cssExample">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="cssExample"><span class="code-tag">p</span> {
+  <span class="code-attr">color</span>: <span class="code-string">#333</span>;
+  <span class="code-attr">font-size</span>: <span class="code-value">16px</span>;
+  <span class="code-attr">margin</span>: <span class="code-value">10px 0</span>;
+}
+
+<span class="code-tag">.header</span> {
+  <span class="code-attr">background-color</span>: <span class="code-string">#f8f9fa</span>;
+  <span class="code-attr">padding</span>: <span class="code-value">20px</span>;
+  <span class="code-attr">text-align</span>: <span class="code-keyword">center</span>;
+}
+
+<span class="code-tag">#main-content</span> {
+  <span class="code-attr">max-width</span>: <span class="code-value">800px</span>;
+  <span class="code-attr">margin</span>: <span class="code-value">0 auto</span>;
+}</code></pre>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="selectors">
+						<h2 class="fw-bold mb-4">Типы селекторов CSS</h2>
+						<div class="card p-4">
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Тип селектора</th>
+											<th>Пример</th>
+											<th>Описание</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Селектор элемента</td>
+											<td><code>h1</code></td>
+											<td>Выбирает все элементы указанного типа</td>
+										</tr>
+										<tr>
+											<td>Селектор класса</td>
+											<td><code>.my-class</code></td>
+											<td>Выбирает элементы с определённым значением атрибута class</td>
+										</tr>
+										<tr>
+											<td>Селектор ID</td>
+											<td><code>#my-id</code></td>
+											<td>Выбирает элемент с определённым значением атрибута id</td>
+										</tr>
+										<tr>
+											<td>Универсальный селектор</td>
+											<td><code>*</code></td>
+											<td>Выбирает все элементы</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="practice">
+						<h2 class="fw-bold mb-4">Практика</h2>
+						<div class="card p-4">
+							<h4>Попробуйте создать простую веб-страницу:</h4>
+							<ol>
+								<li>Создайте папку с именем "my-first-site" на вашем компьютере</li>
+								<li>Создайте файл index.html в этой папке</li>
+								<li>Скопируйте в него <a href="#html-example">пример HTML-документа</a>.</li>
+								<li>Откройте файл в веб-браузере</li>
+								<li>Добавьте правило <code>h1 { color: navy; }</code> в <code>&lt;style&gt;</code> внутри <code>&lt;head&gt;</code>. Сохраните файл и обновите страницу: заголовок станет тёмно-синим.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+				<div class="col-lg-4">
+					<aside class="sidebar" aria-label="Материалы урока">
+						<div class="card mb-4">
+							<div class="card-header">
+								<h2 class="h5 mb-0" id="lesson-navigation">Содержание урока</h2>
+							</div>
+							<nav class="list-group list-group-flush" aria-labelledby="lesson-navigation">
+								<a href="#intro" class="list-group-item list-group-item-action">Введение</a>
+								<a href="#html-elements" class="list-group-item list-group-item-action">Элементы HTML</a>
+								<a href="#html-example" class="list-group-item list-group-item-action">Пример HTML-документа</a>
+								<a href="#css-basics" class="list-group-item list-group-item-action">Основы CSS</a>
+								<a href="#selectors" class="list-group-item list-group-item-action">Селекторы</a>
+								<a href="#practice" class="list-group-item list-group-item-action">Практика</a>
+								<a href="js.html" class="list-group-item list-group-item-action">JavaScript (следующий курс)</a>
+							</nav>
+						</div>
+
+						<div class="card mb-4">
+							<div class="card-header">
+								<h5>Полезные ресурсы</h5>
+							</div>
+							<div class="card-body">
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item d-flex justify-content-between align-items-center">
+										<a href="https://developer.mozilla.org/ru/docs/Web/HTML" class="text-decoration-none">
+											<i class="fas fa-book me-2"></i> HTML справочник (MDN)
+										</a>
+									</li>
+									<li class="list-group-item d-flex justify-content-between align-items-center">
+										<a href="https://developer.mozilla.org/ru/docs/Web/CSS" class="text-decoration-none">
+											<i class="fas fa-book me-2"></i> CSS справочник (MDN)
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header">
+								<h5>Проверьте свои знания</h5>
+							</div>
+							<div class="card-body">
+								<p>Пройдите короткий тест, чтобы проверить, насколько хорошо вы усвоили материал:</p>
+								<button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#testModal">Начать тест</button>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</main>
+	<div class="modal fade" id="testModal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="testModalLabel">Тест по HTML и CSS</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<form id="htmlCssTest" data-quiz-course="HTML &amp; CSS">
+						<fieldset class="mb-4">
+							<legend class="h6">1. Какой тег используется для создания заголовка первого уровня?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q1" id="q1a" value="a" required>
+								<label class="form-check-label" for="q1a">
+									&lt;h2&gt;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q1" id="q1b" value="b">
+								<label class="form-check-label" for="q1b">
+									&lt;h1&gt;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q1" id="q1c" value="c">
+								<label class="form-check-label" for="q1c">
+									&lt;header&gt;
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">2. Как правильно задать цвет фона в CSS?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q2" id="q2a" value="a" required>
+								<label class="form-check-label" for="q2a">
+									background-color: red;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q2" id="q2b" value="b">
+								<label class="form-check-label" for="q2b">
+									color: red;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q2" id="q2c" value="c">
+								<label class="form-check-label" for="q2c">
+									bg-color: red;
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">3. Какой тег используется для создания гиперссылки?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q3" id="q3a" value="a" required>
+								<label class="form-check-label" for="q3a">
+									&lt;link&gt;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q3" id="q3b" value="b">
+								<label class="form-check-label" for="q3b">
+									&lt;a&gt;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q3" id="q3c" value="c">
+								<label class="form-check-label" for="q3c">
+									&lt;href&gt;
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">4. Какой селектор CSS используется для выбора элемента по ID?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q4" id="q4a" value="a" required>
+								<label class="form-check-label" for="q4a">
+									.myId
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q4" id="q4b" value="b">
+								<label class="form-check-label" for="q4b">
+									#myId
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q4" id="q4c" value="c">
+								<label class="form-check-label" for="q4c">
+									*myId
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">5. Какое свойство CSS используется для изменения размера шрифта?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q5" id="q5a" value="a" required>
+								<label class="form-check-label" for="q5a">
+									text-size
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q5" id="q5b" value="b">
+								<label class="form-check-label" for="q5b">
+									font-size
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q5" id="q5c" value="c">
+								<label class="form-check-label" for="q5c">
+									size
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">6. Какой тег используется для создания списка с маркерами?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q6" id="q6a" value="a" required>
+								<label class="form-check-label" for="q6a">
+									&lt;ol&gt;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q6" id="q6b" value="b">
+								<label class="form-check-label" for="q6b">
+									&lt;ul&gt;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q6" id="q6c" value="c">
+								<label class="form-check-label" for="q6c">
+									&lt;list&gt;
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">7. Как сделать текст жирным в CSS?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q7" id="q7a" value="a" required>
+								<label class="form-check-label" for="q7a">
+									font-weight: bold;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q7" id="q7b" value="b">
+								<label class="form-check-label" for="q7b">
+									text-style: bold;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q7" id="q7c" value="c">
+								<label class="form-check-label" for="q7c">
+									font-bold: true;
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">8. Какой атрибут используется для добавления изображения в HTML?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q8" id="q8a" value="a" required>
+								<label class="form-check-label" for="q8a">
+									href
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q8" id="q8b" value="b">
+								<label class="form-check-label" for="q8b">
+									src
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q8" id="q8c" value="c">
+								<label class="form-check-label" for="q8c">
+									link
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">9. Какое свойство CSS используется для добавления отступа внутри элемента?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q9" id="q9a" value="a" required>
+								<label class="form-check-label" for="q9a">
+									margin
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q9" id="q9b" value="b">
+								<label class="form-check-label" for="q9b">
+									padding
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q9" id="q9c" value="c">
+								<label class="form-check-label" for="q9c">
+									border
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">10. Как выровнять текст по центру в CSS?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q10" id="q10a" value="a" required>
+								<label class="form-check-label" for="q10a">
+									align: center;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q10" id="q10b" value="b">
+								<label class="form-check-label" for="q10b">
+									text-align: center;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q10" id="q10c" value="c">
+								<label class="form-check-label" for="q10c">
+									center: true;
+								</label>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<p class="quiz-result" role="status" data-quiz-result></p>
+					<button type="reset" class="btn btn-outline-secondary" form="htmlCssTest">Сбросить ответы</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+					<button type="submit" class="btn btn-success" form="htmlCssTest">Проверить ответы</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer mt-5 py-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h5>CodePulse</h5>
+					<p>Платформа для изучения современных технологий веб-разработки</p>
+				</div>
+				<div class="col-md-4">
+					<h5>Быстрые ссылки</h5>
+					<ul class="list-unstyled">
+						<li><a href="index.html">Главная</a></li>
+						<li><a href="vibor.html">Обучение</a></li>
+						<li><a href="html-css.html">HTML & CSS</a></li>
+						<li><a href="js.html">JavaScript</a></li>
+						<li><a href="react.html">React</a></li>
+						<li><a href="about.html">О проекте</a></li>
+						<li><a href="contact.html">Контакты</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<h5>Связаться с нами</h5>
+					<ul class="list-unstyled">
+						<li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:vikharev2009@gmail.com">vikharev2009@gmail.com</a></li>
+						<li><i class="fas fa-phone" aria-hidden="true"></i> Телефон не указан</li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<div class="text-center">
+				<p>&copy; 2026 CodePulse. Все права защищены.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/auth-check.js" defer></script>
+	<script src="js/lesson.js" defer></script>
+</body>
+</html>

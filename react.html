@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>React - CodePulse 2026</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/lesson.css">
+	<link rel="stylesheet" href="css/navigation.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+	<nav aria-label="Основная навигация" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">
+				<img src="img/codepulse-wordmark.png" width="540" height="108" alt="CodePulse">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Открыть меню">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Главная</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="home.html">Как учиться</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="about.html">О проекте</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact.html">Контакты</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="vibor.html" aria-current="location">Обучение</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="login.html">Вход</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link btn btn-primary text-white ms-2" href="register.html">Регистрация</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<section class="page-header py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1 class="display-4 fw-bold text-center">React</h1>
+					<p class="lead text-center">Первое приложение, компоненты и счётчик</p>
+				<div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+					<a class="btn btn-outline-light" href="#lesson-navigation">Содержание</a>
+					<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#reactTestModal">Начать тест</button>
+				</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<main class="main-content py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<section class="mb-5" id="intro">
+						<h2 class="fw-bold mb-4">Что такое React?</h2>
+						<div class="card p-4">
+							<p>React помогает собирать интерфейс из компонентов. Например, карточка курса может быть одним компонентом: вы передаёте ей название и ссылку, а React показывает её на странице.</p>
+
+							<div class="alert alert-info">
+								<h4><i class="fas fa-lightbulb me-2"></i>Основные преимущества React:</h4>
+								<ul class="mb-0">
+									<li><strong>Компонентный подход</strong> — приложение состоит из независимых, переиспользуемых компонентов</li>
+									<li><strong>Обновление интерфейса</strong> — React применяет необходимые изменения к DOM после рендера</li>
+									<li><strong>Однонаправленный поток данных</strong> — упрощает отладку</li>
+									<li><strong>JSX</strong> — синтаксис, позволяющий писать HTML-подобный код в JavaScript</li>
+									<li><strong>Большое сообщество</strong> — множество библиотек и готовых решений</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="install">
+						<h2 class="fw-bold mb-4">Установка React</h2>
+						<div class="card p-4">
+							<h3>Создание нового React-приложения</h3>
+							<p>Для учебного проекта используйте Vite с шаблоном React. Он создаст минимальное приложение, в котором можно сразу менять компоненты.</p>
+
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="installExample">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="installExample"><span class="code-keyword">npm</span> <span class="code-value">create vite@latest</span> <span class="code-attr">my-app -- --template react</span>
+<span class="code-keyword">cd</span> <span class="code-attr">my-app</span>
+<span class="code-keyword">npm</span> <span class="code-value">install</span>
+<span class="code-keyword">npm</span> <span class="code-value">run dev</span></code></pre>
+							</div>
+
+							<div class="alert alert-info mt-3">
+								<h4>Объяснение:</h4>
+								<ul class="mb-0">
+									<li><code>npm create vite@latest my-app -- --template react</code> создаёт проект в папке <code>my-app</code>.</li>
+									<li><code>cd my-app</code> открывает папку проекта в терминале.</li>
+									<li><code>npm install</code> устанавливает зависимости проекта.</li>
+									<li><code>npm run dev</code> запускает сервер разработки. Откройте адрес из терминала.</li>
+								</ul>
+							</div>
+
+							<h3 class="mt-4">Требования к системе</h3>
+							<p>Для работы с React вам понадобится:</p>
+							<ul>
+								<li><strong>Node.js</strong> свежей LTS-версии. Минимальные версии указаны в <a href="https://vite.dev/guide/">документации Vite</a>.</li>
+								<li><strong>npm</strong> устанавливается вместе с Node.js.</li>
+								<li>Текстовый редактор (рекомендуется VS Code)</li>
+							</ul>
+
+						</div>
+					</section>
+					<section class="mb-5" id="components">
+						<h2 class="fw-bold mb-4">Компоненты React</h2>
+						<div class="card p-4">
+							<p>Компоненты — это строительные блоки любого React-приложения. Компонент принимает входные данные (props) и возвращает React-элементы, описывающие, что должно появиться на экране.</p>
+
+							<div class="row">
+								<div class="col-md-6 mb-4">
+									<div class="text-center">
+										<i class="fas fa-code fa-3x mb-3 text-primary"></i>
+										<h5>Функциональные компоненты</h5>
+										<p>Простые JavaScript-функции, которые возвращают JSX</p>
+									</div>
+								</div>
+								<div class="col-md-6 mb-4">
+									<div class="text-center">
+										<i class="fas fa-cube fa-3x mb-3 text-warning"></i>
+										<h5>Классовые компоненты</h5>
+										<p>ES6 классы, расширяющие React.Component</p>
+									</div>
+								</div>
+							</div>
+
+							<h3 class="mt-4">Функциональный компонент:</h3>
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="funcComponent">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="funcComponent"><span class="code-keyword">function</span> <span class="code-tag">Welcome</span>(<span class="code-attr">props</span>) {
+  <span class="code-keyword">return</span> <span class="code-tag">&lt;h1&gt;</span><span class="code-text">Привет, </span>{<span class="code-attr">props</span>.<span class="code-attr">name</span>}!<span class="code-tag">&lt;/h1&gt;</span>;
+}
+
+<span class="code-comment">// Использование</span>
+<span class="code-tag">&lt;Welcome</span> <span class="code-attr">name</span>=<span class="code-string">"Виталий"</span> <span class="code-tag">/&gt;</span></code></pre>
+							</div>
+
+							<h3 class="mt-4">Классовый компонент:</h3>
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="classComponent">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="classComponent"><span class="code-keyword">class</span> <span class="code-tag">Welcome</span> <span class="code-keyword">extends</span> <span class="code-tag">React.Component</span> {
+  <span class="code-keyword">render</span>() {
+    <span class="code-keyword">return</span> <span class="code-tag">&lt;h1&gt;</span><span class="code-text">Привет, </span>{<span class="code-keyword">this</span>.<span class="code-attr">props</span>.<span class="code-attr">name</span>}!<span class="code-tag">&lt;/h1&gt;</span>;
+  }
+}
+
+<span class="code-comment">// Использование</span>
+<span class="code-tag">&lt;Welcome</span> <span class="code-attr">name</span>=<span class="code-string">"Виталий"</span> <span class="code-tag">/&gt;</span></code></pre>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="state-props">
+						<h2 class="fw-bold mb-4">State и Props</h2>
+						<div class="card p-4">
+							<div class="row">
+								<div class="col-md-6 mb-4">
+									<div class="card h-100">
+										<div class="card-body">
+											<h5 class="card-title">Props (свойства)</h5>
+											<p class="card-text">Props — это данные, которые передаются от родительского компонента к дочернему. Props доступны только для чтения и не могут быть изменены дочерним компонентом.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 mb-4">
+									<div class="card h-100">
+										<div class="card-body">
+											<h5 class="card-title">State (состояние)</h5>
+											<p class="card-text">State — это внутренние данные компонента, которые могут изменяться. Когда state изменяется, компонент перерисовывается.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<h3 class="mt-4">Пример использования State:</h3>
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="stateExample">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="stateExample"><span class="code-keyword">import</span> { <span class="code-attr">useState</span> } <span class="code-keyword">from</span> <span class="code-string">'react'</span>;
+
+<span class="code-keyword">function</span> <span class="code-tag">Counter</span>() {
+  <span class="code-keyword">const</span> [<span class="code-attr">count</span>, <span class="code-attr">setCount</span>] = <span class="code-keyword">useState</span>(<span class="code-value">0</span>);
+
+  <span class="code-keyword">return</span> (
+    <span class="code-tag">&lt;div&gt;</span>
+      <span class="code-tag">&lt;p&gt;</span><span class="code-text">Вы нажали </span>{<span class="code-attr">count</span>}<span class="code-text"> раз</span><span class="code-tag">&lt;/p&gt;</span>
+      <span class="code-tag">&lt;button</span> <span class="code-attr">onClick</span>={() =&gt; <span class="code-keyword">setCount</span>(<span class="code-attr">count</span> + <span class="code-value">1</span>)}<span class="code-tag">&gt;</span>
+        <span class="code-text">Нажми меня</span>
+      <span class="code-tag">&lt;/button&gt;</span>
+    <span class="code-tag">&lt;/div&gt;</span>
+  );
+}</code></pre>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="hooks">
+						<h2 class="fw-bold mb-4">React Hooks</h2>
+						<div class="card p-4">
+							<p>Хуки — это функции, которые позволяют «подцепиться» к возможностям React (таким как состояние и жизненный цикл) из функциональных компонентов. Хуки не работают внутри классов — они дают вам возможность использовать React без классов.</p>
+
+							<div class="table-responsive mt-4">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Хук</th>
+											<th>Описание</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><code>useState</code></td>
+											<td>Позволяет добавить state в функциональный компонент</td>
+										</tr>
+										<tr>
+											<td><code>useEffect</code></td>
+											<td>Выполняет побочные эффекты в функциональных компонентах</td>
+										</tr>
+										<tr>
+											<td><code>useContext</code></td>
+											<td>Позволяет подписаться на React context без вложенности</td>
+										</tr>
+										<tr>
+											<td><code>useRef</code></td>
+											<td>Возвращает изменяемый ref-объект</td>
+										</tr>
+										<tr>
+											<td><code>useMemo</code></td>
+											<td>Мемоизирует вычисленное значение</td>
+										</tr>
+										<tr>
+											<td><code>useCallback</code></td>
+											<td>Мемоизирует функцию обратного вызова</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<h3 class="mt-4">Пример использования useEffect:</h3>
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="effectExample">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="effectExample"><span class="code-keyword">import</span> { <span class="code-attr">useState</span>, <span class="code-attr">useEffect</span> } <span class="code-keyword">from</span> <span class="code-string">'react'</span>;
+
+<span class="code-keyword">function</span> <span class="code-tag">Example</span>() {
+  <span class="code-keyword">const</span> [<span class="code-attr">count</span>, <span class="code-attr">setCount</span>] = <span class="code-keyword">useState</span>(<span class="code-value">0</span>);
+
+  <span class="code-comment">// Аналогично componentDidMount и componentDidUpdate:</span>
+  <span class="code-keyword">useEffect</span>(() =&gt; {
+    <span class="code-attr">document</span>.<span class="code-attr">title</span> = <span class="code-string">`Вы нажали ${<span class="code-attr">count</span>} раз`</span>;
+  }, [<span class="code-attr">count</span>]); <span class="code-comment">// Выполняется только при изменении count</span>
+
+  <span class="code-keyword">return</span> (
+    <span class="code-tag">&lt;div&gt;</span>
+      <span class="code-tag">&lt;p&gt;</span><span class="code-text">Вы нажали </span>{<span class="code-attr">count</span>}<span class="code-text"> раз</span><span class="code-tag">&lt;/p&gt;</span>
+      <span class="code-tag">&lt;button</span> <span class="code-attr">onClick</span>={() =&gt; <span class="code-keyword">setCount</span>(<span class="code-attr">count</span> + <span class="code-value">1</span>)}<span class="code-tag">&gt;</span>
+        <span class="code-text">Нажми меня</span>
+      <span class="code-tag">&lt;/button&gt;</span>
+    <span class="code-tag">&lt;/div&gt;</span>
+  );
+}</code></pre>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="jsx">
+						<h2 class="fw-bold mb-4">JSX - JavaScript XML</h2>
+						<div class="card p-4">
+							<p>JSX — это расширение синтаксиса JavaScript, которое позволяет писать HTML-подобный код внутри JavaScript. JSX делает код более читаемым и понятным, особенно при создании сложных пользовательских интерфейсов.</p>
+
+							<div class="alert alert-warning mt-3">
+								<h4><i class="fas fa-exclamation-triangle me-2"></i>Важно знать:</h4>
+								<ul class="mb-0">
+									<li>JSX не является обязательным, но значительно упрощает разработку</li>
+									<li>JSX компилируется в обычные вызовы функций JavaScript</li>
+									<li>В JSX можно использовать любые JavaScript-выражения внутри фигурных скобок {}</li>
+									<li>React отображает подставленные строки как текст. Для обычных данных не нужно вставлять HTML вручную.</li>
+								</ul>
+							</div>
+
+							<h3 class="mt-4">Пример JSX:</h3>
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="jsxExample">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="jsxExample"><span class="code-keyword">const</span> <span class="code-attr">name</span> = <span class="code-string">'Виталий'</span>;
+<span class="code-keyword">const</span> <span class="code-attr">element</span> = <span class="code-tag">&lt;h1&gt;</span><span class="code-text">Привет, </span>{<span class="code-attr">name</span>}!<span class="code-tag">&lt;/h1&gt;</span>;
+
+<span class="code-comment">// JSX с выражениями</span>
+<span class="code-keyword">function</span> <span class="code-tag">formatName</span>(<span class="code-attr">user</span>) {
+  <span class="code-keyword">return</span> <span class="code-attr">user</span>.<span class="code-attr">firstName</span> + <span class="code-string">' '</span> + <span class="code-attr">user</span>.<span class="code-attr">lastName</span>;
+}
+
+<span class="code-keyword">const</span> <span class="code-attr">user</span> = {
+  <span class="code-attr">firstName</span>: <span class="code-string">'Виталий'</span>,
+  <span class="code-attr">lastName</span>: <span class="code-string">'Вихарев'</span>
+};
+
+<span class="code-keyword">const</span> <span class="code-attr">greeting</span> = (
+  <span class="code-tag">&lt;h1&gt;</span>
+    <span class="code-text">Привет, </span>{<span class="code-keyword">formatName</span>(<span class="code-attr">user</span>)}!
+  <span class="code-tag">&lt;/h1&gt;</span>
+);</code></pre>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="conditional">
+						<h2 class="fw-bold mb-4">Условный рендеринг</h2>
+						<div class="card p-4">
+							<p>В React вы можете создавать отдельные компоненты, которые инкапсулируют нужное вам поведение. Затем вы можете рендерить только некоторые из них в зависимости от состояния вашего приложения.</p>
+
+							<h3 class="mt-4">Использование if/else:</h3>
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="conditionalIf">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="conditionalIf"><span class="code-keyword">function</span> <span class="code-tag">Greeting</span>({ <span class="code-attr">isLoggedIn</span> }) {
+  <span class="code-keyword">if</span> (<span class="code-attr">isLoggedIn</span>) {
+    <span class="code-keyword">return</span> <span class="code-tag">&lt;h1&gt;</span><span class="code-text">С возвращением!</span><span class="code-tag">&lt;/h1&gt;</span>;
+  }
+  <span class="code-keyword">return</span> <span class="code-tag">&lt;h1&gt;</span><span class="code-text">Пожалуйста, войдите.</span><span class="code-tag">&lt;/h1&gt;</span>;
+}</code></pre>
+							</div>
+
+							<h3 class="mt-4">Использование тернарного оператора:</h3>
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="conditionalTernary">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="conditionalTernary"><span class="code-keyword">function</span> <span class="code-tag">LoginButton</span>({ <span class="code-attr">isLoggedIn</span> }) {
+  <span class="code-keyword">return</span> (
+    <span class="code-tag">&lt;button&gt;</span>
+      {<span class="code-attr">isLoggedIn</span> ? <span class="code-string">'Выйти'</span> : <span class="code-string">'Войти'</span>}
+    <span class="code-tag">&lt;/button&gt;</span>
+  );
+}</code></pre>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="lists">
+						<h2 class="fw-bold mb-4">Списки и ключи</h2>
+						<div class="card p-4">
+							<p>В React вы можете создавать коллекции элементов и включать их в JSX, используя фигурные скобки {}. Для рендеринга списков обычно используется метод массива map().</p>
+
+							<h3 class="mt-4">Рендеринг списка:</h3>
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="listExample">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="listExample"><span class="code-keyword">function</span> <span class="code-tag">NumberList</span>({ <span class="code-attr">numbers</span> }) {
+  <span class="code-keyword">const</span> <span class="code-attr">listItems</span> = <span class="code-attr">numbers</span>.<span class="code-keyword">map</span>((<span class="code-attr">number</span>) =&gt;
+    <span class="code-tag">&lt;li</span> <span class="code-attr">key</span>={<span class="code-attr">number</span>.<span class="code-keyword">toString</span>()}<span class="code-tag">&gt;</span>
+      {<span class="code-attr">number</span>}
+    <span class="code-tag">&lt;/li&gt;</span>
+  );
+
+  <span class="code-keyword">return</span> <span class="code-tag">&lt;ul&gt;</span>{<span class="code-attr">listItems</span>}<span class="code-tag">&lt;/ul&gt;</span>;
+}
+
+<span class="code-comment">// Использование</span>
+<span class="code-keyword">const</span> <span class="code-attr">numbers</span> = [<span class="code-value">1</span>, <span class="code-value">2</span>, <span class="code-value">3</span>, <span class="code-value">4</span>, <span class="code-value">5</span>];
+<span class="code-tag">&lt;NumberList</span> <span class="code-attr">numbers</span>={<span class="code-attr">numbers</span>} <span class="code-tag">/&gt;</span></code></pre>
+							</div>
+
+							<div class="alert alert-warning mt-3">
+								<h4><i class="fas fa-key me-2"></i>Важность ключей (keys):</h4>
+								<ul class="mb-0">
+									<li>Ключи помогают React определить, какие элементы изменились, добавились или удалились</li>
+									<li>Ключи должны быть уникальными среди соседних элементов</li>
+									<li>Лучше всего использовать строку, которая уникально идентифицирует элемент (например, ID из базы данных)</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="practice">
+						<h2 class="fw-bold mb-4">Практика</h2>
+						<div class="card p-4">
+							<h4>Создайте своё первое React-приложение:</h4>
+							<ol>
+								<li>Создайте и запустите проект по инструкции из раздела <a href="#install">«Установка React»</a>.</li>
+								<li>Откройте файл <code>src/App.jsx</code> в редакторе.</li>
+								<li>Замените заголовок стартовой страницы на «Мой первый курс» и сохраните файл. Проверьте изменение в браузере.</li>
+							</ol>
+
+							<div class="alert alert-success mt-3">
+								<h4>Следующий шаг</h4>
+								<p class="mb-0">Добавьте компонент <code>Counter</code> из раздела <a href="#state-props">«State и Props»</a> и выведите <code>&lt;Counter /&gt;</code> в <code>App</code>. После трёх нажатий счётчик должен показать <code>3</code>.</p>
+							</div>
+						</div>
+					</section>
+				</div>
+				<div class="col-lg-4">
+					<aside class="sidebar" aria-label="Материалы урока">
+						<div class="card mb-4">
+							<div class="card-header">
+								<h2 class="h5 mb-0" id="lesson-navigation">Содержание урока</h2>
+							</div>
+							<nav class="list-group list-group-flush" aria-labelledby="lesson-navigation">
+								<a href="#intro" class="list-group-item list-group-item-action">Что такое React?</a>
+								<a href="#install" class="list-group-item list-group-item-action">Установка</a>
+								<a href="#components" class="list-group-item list-group-item-action">Компоненты</a>
+								<a href="#state-props" class="list-group-item list-group-item-action">State и Props</a>
+								<a href="#hooks" class="list-group-item list-group-item-action">Хуки</a>
+								<a href="#jsx" class="list-group-item list-group-item-action">JSX</a>
+								<a href="#conditional" class="list-group-item list-group-item-action">Условный рендеринг</a>
+								<a href="#lists" class="list-group-item list-group-item-action">Списки и ключи</a>
+								<a href="#practice" class="list-group-item list-group-item-action">Практика</a>
+								<a href="html-css.html" class="list-group-item list-group-item-action">HTML & CSS</a>
+								<a href="js.html" class="list-group-item list-group-item-action">JavaScript</a>
+							</nav>
+						</div>
+
+						<div class="card mb-4">
+							<div class="card-header">
+								<h5>Полезные ресурсы</h5>
+							</div>
+							<div class="card-body">
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item d-flex justify-content-between align-items-center">
+										<a href="https://react.dev/" class="text-decoration-none">
+											<i class="fas fa-book me-2"></i> Официальная документация React
+										</a>
+									</li>
+									<li class="list-group-item d-flex justify-content-between align-items-center">
+										<a href="https://vite.dev/guide/" class="text-decoration-none">
+											<i class="fas fa-book me-2"></i> Руководство Vite
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header">
+								<h5>Проверьте свои знания</h5>
+							</div>
+							<div class="card-body">
+								<p>Пройдите короткий тест, чтобы проверить, насколько хорошо вы усвоили материал:</p>
+								<button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#reactTestModal">Начать тест</button>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="footer mt-5 py-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h5>CodePulse</h5>
+					<p>Платформа для изучения современных технологий веб-разработки</p>
+				</div>
+				<div class="col-md-4">
+					<h5>Быстрые ссылки</h5>
+					<ul class="list-unstyled">
+						<li><a href="index.html">Главная</a></li>
+						<li><a href="vibor.html">Обучение</a></li>
+						<li><a href="html-css.html">HTML & CSS</a></li>
+						<li><a href="js.html">JavaScript</a></li>
+						<li><a href="react.html">React</a></li>
+						<li><a href="about.html">О проекте</a></li>
+						<li><a href="contact.html">Контакты</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<h5>Связаться с нами</h5>
+					<ul class="list-unstyled">
+						<li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:vikharev2009@gmail.com">vikharev2009@gmail.com</a></li>
+						<li><i class="fas fa-phone" aria-hidden="true"></i> Телефон не указан</li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<div class="text-center">
+				<p>&copy; 2026 CodePulse. Все права защищены.</p>
+			</div>
+		</div>
+	</footer>
+	<div class="modal fade" id="reactTestModal" tabindex="-1" aria-labelledby="reactTestModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="reactTestModalLabel">Тест по React</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<form id="reactTest" data-quiz-course="React">
+						<fieldset class="mb-4">
+							<legend class="h6">1. Что такое React?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq1" id="rq1a" value="a" required>
+								<label class="form-check-label" for="rq1a">
+									Язык программирования
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq1" id="rq1b" value="b">
+								<label class="form-check-label" for="rq1b">
+									Фреймворк для создания мобильных приложений
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq1" id="rq1c" value="c">
+								<label class="form-check-label" for="rq1c">
+									JavaScript-библиотека для создания пользовательских интерфейсов
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">2. Какой хук используется для добавления состояния в функциональный компонент?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq2" id="rq2a" value="a" required>
+								<label class="form-check-label" for="rq2a">
+									useEffect
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq2" id="rq2b" value="b">
+								<label class="form-check-label" for="rq2b">
+									useState
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq2" id="rq2c" value="c">
+								<label class="form-check-label" for="rq2c">
+									useContext
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">3. Что такое JSX?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq3" id="rq3a" value="a" required>
+								<label class="form-check-label" for="rq3a">
+									Расширение синтаксиса JavaScript для написания HTML-подобного кода
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq3" id="rq3b" value="b">
+								<label class="form-check-label" for="rq3b">
+									Новый язык программирования
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq3" id="rq3c" value="c">
+								<label class="form-check-label" for="rq3c">
+									Библиотека для работы с XML
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">4. Какой хук используется для выполнения побочных эффектов?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq4" id="rq4a" value="a" required>
+								<label class="form-check-label" for="rq4a">
+									useState
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq4" id="rq4b" value="b">
+								<label class="form-check-label" for="rq4b">
+									useEffect
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq4" id="rq4c" value="c">
+								<label class="form-check-label" for="rq4c">
+									useRef
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">5. Что передаётся компоненту от родителя к дочернему?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq5" id="rq5a" value="a" required>
+								<label class="form-check-label" for="rq5a">
+									Props
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq5" id="rq5b" value="b">
+								<label class="form-check-label" for="rq5b">
+									State
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq5" id="rq5c" value="c">
+								<label class="form-check-label" for="rq5c">
+									Context
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">6. Какая команда создаёт проект Vite с шаблоном React?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq6" id="rq6a" value="a" required>
+								<label class="form-check-label" for="rq6a">
+									npm install react
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq6" id="rq6b" value="b">
+								<label class="form-check-label" for="rq6b">
+									npm create vite@latest my-app -- --template react
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq6" id="rq6c" value="c">
+								<label class="form-check-label" for="rq6c">
+									react new my-app
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">7. Зачем нужны ключи (keys) при рендеринге списков?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq7" id="rq7a" value="a" required>
+								<label class="form-check-label" for="rq7a">
+									Для стилизации элементов
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq7" id="rq7b" value="b">
+								<label class="form-check-label" for="rq7b">
+									Для добавления анимации
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq7" id="rq7c" value="c">
+								<label class="form-check-label" for="rq7c">
+									Чтобы React мог определить, какие элементы изменились
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">8. Какой метод массива чаще всего используется для рендеринга списков?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq8" id="rq8a" value="a" required>
+								<label class="form-check-label" for="rq8a">
+									map()
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq8" id="rq8b" value="b">
+								<label class="form-check-label" for="rq8b">
+									filter()
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq8" id="rq8c" value="c">
+								<label class="form-check-label" for="rq8c">
+									forEach()
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">9. Что React делает с DOM после рендера?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq9" id="rq9a" value="a" required>
+								<label class="form-check-label" for="rq9a">
+									Заменяет весь документ целиком
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq9" id="rq9b" value="b">
+								<label class="form-check-label" for="rq9b">
+									Применяет нужные изменения к элементам страницы
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq9" id="rq9c" value="c">
+								<label class="form-check-label" for="rq9c">
+									Оставляет страницу без изменений при любом результате рендера
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">10. Как называются компоненты, которые управляют значением элементов формы через state?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq10" id="rq10a" value="a" required>
+								<label class="form-check-label" for="rq10a">
+									Неконтролируемые компоненты
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq10" id="rq10b" value="b">
+								<label class="form-check-label" for="rq10b">
+									Функциональные компоненты
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="rq10" id="rq10c" value="c">
+								<label class="form-check-label" for="rq10c">
+									Контролируемые компоненты
+								</label>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<p class="quiz-result" role="status" data-quiz-result></p>
+					<button type="reset" class="btn btn-outline-secondary" form="reactTest">Сбросить ответы</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+					<button type="submit" class="btn btn-success" form="reactTest">Проверить ответы</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/auth-check.js" defer></script>
+	<script src="js/lesson.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript - CodePulse 2026</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/lesson.css">
+	<link rel="stylesheet" href="css/navigation.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+	<nav aria-label="Основная навигация" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">
+				<img src="img/codepulse-wordmark.png" width="540" height="108" alt="CodePulse">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Открыть меню">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Главная</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="home.html">Как учиться</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="about.html">О проекте</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact.html">Контакты</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="vibor.html" aria-current="location">Обучение</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="login.html">Вход</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link btn btn-primary text-white ms-2" href="register.html">Регистрация</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<section class="page-header py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1 class="display-4 fw-bold text-center">JavaScript</h1>
+					<p class="lead text-center">Переменные, функции и первые события на странице</p>
+				<div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+					<a class="btn btn-outline-light" href="#lesson-navigation">Содержание</a>
+					<a class="btn btn-outline-light" href="#practice">Открыть редактор</a>
+					<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#jsTestModal">Начать тест</button>
+				</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<main class="main-content py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<section class="mb-5" id="intro">
+						<h2 class="fw-bold mb-4">Что такое JavaScript?</h2>
+						<div class="card p-4">
+							<p>JavaScript позволяет странице реагировать на действия пользователя. Например, можно изменить заголовок, проверить поле формы или раскрыть блок по нажатию кнопки.</p>
+							<p class="mb-0">В этом уроке вы подключите файл JavaScript к HTML, измените заголовок и напишете свою функцию. Первый пример основан на <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity">руководстве MDN «Adding interactivity»</a>.</p>
+						</div>
+					</section>
+					<section class="mb-5" id="hello-world">
+						<h2 class="fw-bold mb-4">Пример "Hello World"</h2>
+						<div class="card p-4">
+							<div class="mb-4">
+								<h3 class="h5">Шаги для реализации:</h3>
+								<ol>
+									<li>Создайте папку с именем 'scripts' в корне вашего проекта</li>
+									<li>Создайте файл main.js в папке scripts</li>
+									<li>Добавьте ссылку на JavaScript в ваш HTML-файл перед закрывающим тегом &lt;/body&gt;:</li>
+								</ol>
+
+								<div class="code-block">
+									<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="codeExample1">
+										<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+									</button>
+									<pre><code id="codeExample1"><span class="code-tag">&lt;script</span> <span class="code-attr">src</span>=<span class="code-string">"scripts/main.js"</span><span class="code-tag">&gt;&lt;/script&gt;</span></code></pre>
+								</div>
+
+								<p>Теперь добавьте следующий код в файл main.js:</p>
+
+								<div class="code-block">
+									<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="codeExample2">
+										<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+									</button>
+									<pre><code id="codeExample2"><span class="code-keyword">const</span> myHeading = <span class="code-value">document</span>.<span class="code-attr">querySelector</span>(<span class="code-string">'h1'</span>);
+myHeading.<span class="code-attr">textContent</span> = <span class="code-string">'Hello world!'</span>;</code></pre>
+								</div>
+							</div>
+
+							<div class="alert alert-info">
+								<h4>Что произошло?</h4>
+								<p class="mb-0"><code>querySelector('h1')</code> находит первый заголовок первого уровня. <code>myHeading</code> хранит ссылку на него, а присваивание <code>textContent</code> меняет текст заголовка. Добавьте <code>&lt;h1&gt;</code> в HTML перед подключением скрипта.</p>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="variables">
+						<h2 class="fw-bold mb-4">Переменные</h2>
+						<div class="card p-4">
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Тип или структура данных</th>
+											<th>Описание</th>
+											<th>Пример</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>String (Строка)</td>
+											<td>Последовательность текста, называемая строкой. Чтобы указать, что это значение является строкой, вы должны заключить его в кавычки.</td>
+											<td><code>var myVariable = 'Bob';</code></td>
+										</tr>
+										<tr>
+											<td>Number (Число)</td>
+											<td>Числа. Числа не имеют кавычек вокруг них.</td>
+											<td><code>var myVariable = 10;</code></td>
+										</tr>
+										<tr>
+											<td>Boolean (Логический)</td>
+											<td>Значение True(Правда)/False(Ложь). Слова true и false специальные ключевые слова в JS, и не нуждаются в кавычках.</td>
+											<td><code>var myVariable = true;</code></td>
+										</tr>
+										<tr>
+											<td>Array (Массив)</td>
+											<td>Массив, который позволяет хранить несколько значений в одной ссылке.</td>
+											<td><code>var myVariable = [1,'Bob','Steve',10];</code> Обратиться к каждому элементу массива можно так: myVariable[0], myVariable[1], и т.д.</td>
+										</tr>
+										<tr>
+											<td>Object (Объект)</td>
+											<td>Объект хранит свойства. Числа, строки и логические значения относятся к примитивным типам.</td>
+											<td><code>var myVariable = document.querySelector('h1');</code> Все это из вышеприведённых примеров.</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="operators">
+						<h2 class="fw-bold mb-4">Операторы</h2>
+						<div class="card p-4">
+							<p>Operator — это математический символ, который производит результат, основанный на двух значениях (или переменных). В приведённой ниже таблице вы можете увидеть некоторые из самых простых операторов, наряду с некоторыми примерами, которые опробуете в JavaScript консоли.</p>
+
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Оператор</th>
+											<th>Описание</th>
+											<th>Символ(ы)</th>
+											<th>Пример</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Сложение (Конкатенация)</td>
+											<td>Используется для сложения двух чисел или склеивания двух строк вместе.</td>
+											<td><code>+</code></td>
+											<td><code>6 + 9; "Hello " + "world!";</code></td>
+										</tr>
+										<tr>
+											<td>Вычитание, Умножение, Деление</td>
+											<td>Они делают то, чего вы от них ожидаете в математике.</td>
+											<td><code>-, *, /</code></td>
+											<td><code>9 - 3; 8 * 2; 9 / 3;</code></td>
+										</tr>
+										<tr>
+											<td>Присваивание</td>
+											<td>Вы уже это видели: он присваивает значение переменной.</td>
+											<td><code>=</code></td>
+											<td><code>var myVariable = 'Bob';</code></td>
+										</tr>
+										<tr>
+											<td>Равенство (Тождество)</td>
+											<td>Делает проверку, если увидит, что два значения равны друг другу, то возвращает результат true/false (Boolean).</td>
+											<td><code>===</code></td>
+											<td><code>var myVariable = 3; myVariable === 4;</code></td>
+										</tr>
+										<tr>
+											<td>Отрицание (Неравенство)</td>
+											<td>Возвращает логически противоположное значение, которое ему предшествует; превращает true в false, и т.д. Когда используется вместе с оператором равенства, оператор отрицания проверяет, являются ли два значения не равными.</td>
+											<td><code>!, !==</code></td>
+											<td><code>var myVariable = 3; !(myVariable === 3); var myVariable = 3; myVariable !== 3;</code></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="conditions">
+						<h2 class="fw-bold mb-4">Условия</h2>
+						<div class="card p-4">
+							<p>Условия — это конструкции в коде, которые позволяют проверить истинность или ложность выражения и выполнить другой код в зависимости от полученного результата. Самая распространённая форма условия — инструкция if ... else. Например:</p>
+
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="conditionExample">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="conditionExample"><span class="code-keyword">var</span> iceCream = <span class="code-string">"chocolate"</span>;
+<span class="code-keyword">if</span> (iceCream === <span class="code-string">"chocolate"</span>) {
+	<span class="code-value">alert</span>(<span class="code-string">"Yay, I love chocolate ice cream!"</span>);
+} <span class="code-keyword">else</span> {
+	<span class="code-value">alert</span>(<span class="code-string">"Awwww, but chocolate is my favorite..."</span>);
+}</code></pre>
+							</div>
+
+							<p class="mt-3">Выражение внутри if ( ... ) — это проверка, которая использует тождественный оператор (как описано выше), чтобы сравнить переменную iceCream со строкой chocolate и увидеть равны ли они. Если это сравнение возвращает true, выполнится первый блок кода. Если нет, этот код пропустится и выполнится второй блок кода, после инструкции else.</p>
+						</div>
+					</section>
+					<section class="mb-5" id="functions">
+						<h2 class="fw-bold mb-4">Функции</h2>
+						<div class="card p-4">
+							<p>Функции - способ упаковки функциональности, которую вы хотите использовать повторно. Всякий раз, когда вам нужна определённая процедура, вы можете просто вызвать функцию по её имени, а не переписывать весь код каждый раз. Вы уже видели некоторые функции, описанные выше, например:</p>
+
+							<div class="code-block mb-3">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="funcExample1">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="funcExample1"><span class="code-keyword">var</span> myVariable = <span class="code-value">document</span>.<span class="code-attr">querySelector</span>(<span class="code-string">"h1"</span>);</code></pre>
+							</div>
+
+							<div class="code-block mb-3">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="funcExample2">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="funcExample2"><span class="code-value">alert</span>(<span class="code-string">"hello!"</span>);</code></pre>
+							</div>
+
+							<p>Эти функции, document.querySelector и alert, встроены в браузер для того, чтобы вы использовали их всякий раз, когда вам это необходимо.</p>
+							<p>Скобки после имени вызывают функцию. Внутри скобок передают аргументы, например <code>alert('Привет')</code> покажет строку в браузере.</p>
+							<p>В своей функции <code>multiply</code> мы принимаем два числа и возвращаем их произведение:</p>
+
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="funcExample3">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="funcExample3"><span class="code-keyword">function</span> <span class="code-value">multiply</span>(first, second) {
+    <span class="code-keyword">return</span> first * second;
+}</code></pre>
+							</div>
+
+							<p class="mt-3">Попробуйте запустить вышеупомянутую функцию в консоли, затем попробуйте изменить аргументы, например:</p>
+
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="funcExample4">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="funcExample4"><span class="code-value">multiply</span>(<span class="code-value">4</span>, <span class="code-value">7</span>);
+<span class="code-value">multiply</span>(<span class="code-value">20</span>, <span class="code-value">20</span>);
+<span class="code-value">multiply</span>(<span class="code-value">0.5</span>, <span class="code-value">3</span>);</code></pre>
+							</div>
+						</div>
+					</section>
+					<section class="mb-5" id="events">
+						<h2 class="fw-bold mb-4">События</h2>
+						<div class="card p-4">
+							<p>Браузер сообщает о действиях пользователя через события. Например, когда пользователь нажимает на элемент, возникает событие <code>click</code>.</p>
+
+							<div class="code-block">
+								<button type="button" class="btn btn-sm btn-outline-light" data-copy-code="eventExample">
+									<i class="fas fa-copy" aria-hidden="true"></i> <span data-copy-label>Копировать</span>
+								</button>
+								<pre><code id="eventExample"><span class="code-value">document</span>.<span class="code-attr">addEventListener</span>(<span class="code-string">'click'</span>, () =&gt; {
+    <span class="code-value">console</span>.<span class="code-attr">log</span>(<span class="code-string">'Клик по странице'</span>);
+});</code></pre>
+							</div>
+
+							<p class="mt-3 mb-0"><code>addEventListener()</code> связывает событие и функцию. Добавьте этот пример в <code>main.js</code>, нажмите на страницу и посмотрите сообщение в консоли браузера.</p>
+						</div>
+					</section>
+					<section class="mb-5" id="summary">
+						<h2 class="fw-bold mb-4">Задание для редактора</h2>
+						<div class="card p-4">
+							<p class="mb-0">Скопируйте функцию <code>multiply</code> из урока в <a href="#practice">редактор</a>. Добавьте строку <code>console.log(multiply(6, 7));</code> и запустите код. В выводе должно быть число <code>42</code>.</p>
+						</div>
+					</section>
+				</div>
+				<div class="col-lg-4">
+					<aside class="sidebar" aria-label="Материалы урока">
+						<div class="card mb-4">
+							<div class="card-header">
+								<h2 class="h5 mb-0" id="lesson-navigation">Содержание урока</h2>
+							</div>
+							<nav class="list-group list-group-flush" aria-labelledby="lesson-navigation">
+								<a href="#intro" class="list-group-item list-group-item-action">Введение</a>
+								<a href="#hello-world" class="list-group-item list-group-item-action">Пример Hello World</a>
+								<a href="#variables" class="list-group-item list-group-item-action">Переменные</a>
+								<a href="#operators" class="list-group-item list-group-item-action">Операторы</a>
+								<a href="#conditions" class="list-group-item list-group-item-action">Условия</a>
+								<a href="#functions" class="list-group-item list-group-item-action">Функции</a>
+								<a href="#events" class="list-group-item list-group-item-action">События</a>
+								<a href="#practice" class="list-group-item list-group-item-action">Редактор JavaScript</a>
+								<a href="#summary" class="list-group-item list-group-item-action">Задание для редактора</a>
+								<a href="html-css.html" class="list-group-item list-group-item-action">HTML & CSS (предыдущий курс)</a>
+							</nav>
+						</div>
+
+						<div class="card mb-4">
+							<div class="card-header">
+								<h2 class="h5 mb-0" id="practice">Практика</h2>
+							</div>
+							<div class="card-body">
+								<p>Проверьте вычисления, функции и <code>console.log()</code>. Работа с HTML и сетью в редакторе недоступна.</p>
+								<div class="mb-3">
+									<label for="jsEditor" class="form-label">Код:</label>
+									<textarea class="form-control" id="jsEditor" rows="5">console.log('Привет, JavaScript!');</textarea>
+								</div>
+								<button type="button" class="btn btn-success w-100" id="runCodeBtn">Выполнить код</button>
+								<div class="mt-3">
+									<div id="outputLabel" class="form-label">Вывод</div>
+									<pre class="playground-output" id="outputConsole" aria-labelledby="outputLabel" role="status"></pre>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header">
+								<h5>Проверьте свои знания</h5>
+							</div>
+							<div class="card-body">
+								<p>Пройдите короткий тест, чтобы проверить, насколько хорошо вы усвоили материал:</p>
+								<button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#jsTestModal">Начать тест</button>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header">
+								<h5>Дополнительные ресурсы</h5>
+							</div>
+							<div class="card-body">
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item d-flex justify-content-between align-items-center">
+										<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide" class="text-decoration-none">
+											<i class="fas fa-book me-2"></i> Руководство по JavaScript (MDN)
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</main>
+	<div class="modal fade" id="jsTestModal" tabindex="-1" aria-labelledby="jsTestModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="jsTestModalLabel">Тест по JavaScript</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<form id="jsTest" data-quiz-course="JavaScript">
+						<fieldset class="mb-4">
+							<legend class="h6">1. Какие из этих записей объявляют переменную в JavaScript?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q1" id="q1a" value="a" required>
+								<label class="form-check-label" for="q1a">
+									var myVariable;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q1" id="q1b" value="b">
+								<label class="form-check-label" for="q1b">
+									let myVariable;
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q1" id="q1c" value="c">
+								<label class="form-check-label" for="q1c">
+									Оба варианта верны
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">2. Какой метод используется для вывода данных в консоль?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q2" id="q2a" value="a" required>
+								<label class="form-check-label" for="q2a">
+									print()
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q2" id="q2b" value="b">
+								<label class="form-check-label" for="q2b">
+									console.log()
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q2" id="q2c" value="c">
+								<label class="form-check-label" for="q2c">
+									output()
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">3. Какой оператор используется для проверки равенства значений и типов данных?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q3" id="q3a" value="a" required>
+								<label class="form-check-label" for="q3a">
+									=
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q3" id="q3b" value="b">
+								<label class="form-check-label" for="q3b">
+									==
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q3" id="q3c" value="c">
+								<label class="form-check-label" for="q3c">
+									===
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">4. Какой тип данных НЕ существует в JavaScript?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q4" id="q4a" value="a" required>
+								<label class="form-check-label" for="q4a">
+									String
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q4" id="q4b" value="b">
+								<label class="form-check-label" for="q4b">
+									Float
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q4" id="q4c" value="c">
+								<label class="form-check-label" for="q4c">
+									Boolean
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">5. Как создать функцию в JavaScript?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q5" id="q5a" value="a" required>
+								<label class="form-check-label" for="q5a">
+									function myFunction() {}
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q5" id="q5b" value="b">
+								<label class="form-check-label" for="q5b">
+									def myFunction() {}
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q5" id="q5c" value="c">
+								<label class="form-check-label" for="q5c">
+									func myFunction() {}
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">6. Какой метод используется для добавления элемента в конец массива?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q6" id="q6a" value="a" required>
+								<label class="form-check-label" for="q6a">
+									push()
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q6" id="q6b" value="b">
+								<label class="form-check-label" for="q6b">
+									add()
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q6" id="q6c" value="c">
+								<label class="form-check-label" for="q6c">
+									append()
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">7. Что вернет typeof null?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q7" id="q7a" value="a" required>
+								<label class="form-check-label" for="q7a">
+									"null"
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q7" id="q7b" value="b">
+								<label class="form-check-label" for="q7b">
+									"object"
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q7" id="q7c" value="c">
+								<label class="form-check-label" for="q7c">
+									"undefined"
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">8. Как получить длину массива?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q8" id="q8a" value="a" required>
+								<label class="form-check-label" for="q8a">
+									array.length
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q8" id="q8b" value="b">
+								<label class="form-check-label" for="q8b">
+									array.size
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q8" id="q8c" value="c">
+								<label class="form-check-label" for="q8c">
+									array.count
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">9. Какая из этих функций разбирает целое число в начале строки?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q9" id="q9a" value="a" required>
+								<label class="form-check-label" for="q9a">
+									parseInt()
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q9" id="q9b" value="b">
+								<label class="form-check-label" for="q9b">
+									toNumber()
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q9" id="q9c" value="c">
+								<label class="form-check-label" for="q9c">
+									convertToInt()
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset class="mb-4">
+							<legend class="h6">10. Что делает метод addEventListener()?</legend>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q10" id="q10a" value="a" required>
+								<label class="form-check-label" for="q10a">
+									Добавляет обработчик события к элементу
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q10" id="q10b" value="b">
+								<label class="form-check-label" for="q10b">
+									Создает новый элемент
+								</label>
+							</div>
+							<div class="form-check mb-2">
+								<input class="form-check-input" type="radio" name="q10" id="q10c" value="c">
+								<label class="form-check-label" for="q10c">
+									Удаляет элемент
+								</label>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<p class="quiz-result" role="status" data-quiz-result></p>
+					<button type="reset" class="btn btn-outline-secondary" form="jsTest">Сбросить ответы</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+					<button type="submit" class="btn btn-success" form="jsTest">Проверить ответы</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer mt-5 py-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h5>CodePulse</h5>
+					<p>Платформа для изучения современных технологий веб-разработки</p>
+				</div>
+				<div class="col-md-4">
+					<h5>Быстрые ссылки</h5>
+					<ul class="list-unstyled">
+						<li><a href="index.html">Главная</a></li>
+						<li><a href="vibor.html">Обучение</a></li>
+						<li><a href="html-css.html">HTML & CSS</a></li>
+						<li><a href="js.html">JavaScript</a></li>
+						<li><a href="react.html">React</a></li>
+						<li><a href="about.html">О проекте</a></li>
+						<li><a href="contact.html">Контакты</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<h5>Связаться с нами</h5>
+					<ul class="list-unstyled">
+						<li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:vikharev2009@gmail.com">vikharev2009@gmail.com</a></li>
+						<li><i class="fas fa-phone" aria-hidden="true"></i> Телефон не указан</li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<div class="text-center">
+				<p>&copy; 2026 CodePulse. Все права защищены.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/auth-check.js" defer></script>
+	<script src="js/lesson.js" defer></script>
+	<script src="js/playground.js" defer></script>
+</body>
+</html>
